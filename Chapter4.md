@@ -55,7 +55,7 @@ GROUP BY dt
 ### 월별 매출의 작대비 구하기
 - 로직: 
     - CTE로 year, month를 나눈 테이블 생성 후 메인쿼리에서 CASE WHEN으로 연도별 분리 후 집계.
-    - **메인 쿼리에서 CASE WHEN 을 다시 SUM으로 묶어주고 GROUP BY 시키면 tidy해짐!!!!!!**
+    - **메인 쿼리에서 CASE WHEN 을 다시 SUM으로 묶어주고 GROUP BY 시키면 clean하게 aggregate해짐!!!!!!**
 ```
 WITH daily_purchase AS(
     SELECT
@@ -74,8 +74,10 @@ SELECT
 FROM daily_purchase
 GROUP BY mm
 ```
-![alt text](image.png)
-![alt text](image-1.png)
+
+![스크린샷 2025-07-08 오후 6 21 44](https://github.com/user-attachments/assets/99067a9e-71a3-43a1-8d0b-7eb5ffcd1735)
+![스크린샷 2025-07-08 오후 6 19 59](https://github.com/user-attachments/assets/46a5b4f9-9f06-4957-bb82-e75bd78969b4)
+
 
 ### z차트로 업적 추이 확인
 - 계절에 따른 매출 변동은 월차매출, 매출누계, 이동년계로 구성된 Z차트를 통해 시즈널리티를 배제하고 트렌드를 분석할 수 있음
